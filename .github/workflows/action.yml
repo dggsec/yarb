@@ -1,13 +1,12 @@
 # https://docs.github.com/cn/actions/automating-builds-and-tests/building-and-testing-python
 
-name: Push Push
+name: Update dailynews
 
-# 国际标准时间3点（北京时间11点）
-# on:
-#   schedule:
-#     - cron: '0 3 * * *'
+# 国际标准时间2点（北京时间10点）
 on:
-  workflow_dispatch
+  schedule:
+    - cron: '0 2 * * *'
+  workflow_dispatch:
 
 jobs:
   build:
@@ -42,4 +41,4 @@ jobs:
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.MY_GITHUB_TOKEN }}
